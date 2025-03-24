@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Made N10,000+ in Three Months Building Websites Without Coding</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #f97316;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0.8)), url('/placeholder.svg?height=800&width=1600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+        }
+        
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .text-primary {
+            color: var(--primary) !important;
+        }
+        
+        .text-secondary {
+            color: var(--secondary) !important;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+        
+        .bg-secondary {
+            background-color: var(--secondary) !important;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+        
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+        
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: #ea580c;
+            border-color: #ea580c;
+        }
+        
+        .btn-lg {
+            padding: 15px 40px;
+            font-size: 18px;
+        }
+        
+        .feature-box {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .testimonial-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .price-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        /* .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-lg {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+        } */
+        
+        .bonus-section {
+            background-color: #ffe8f0;
+            border-radius: 10px;
+            padding: 40px;
+            border: 2px dashed var(--accent-color);
+        }
+        
+        .countdown {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .count-item {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .count-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .guarantee-badge {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: var(--light);
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            z-index: 999;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .price-highlight {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <h1 class="display-3 fw-bold mb-4">How I Made $10,000+ in Three Months Building Websites Without Writing a Single Line of Code</h1>
+                    <p class="lead mb-4">Discover the exact step-by-step system I used to build a profitable web design business with zero coding skills</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#pricing" class="btn btn-secondary btn-lg">Get Started Today</a>
+                        <a href="#how-it-works" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <h4 class="text-center mb-4">Watch How It Works</h4>
+                            <div class="video-container mb-4">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="text-center">
+                                <a href="#pricing" class="btn btn-primary">Get Instant Access</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-10">
+                    <p class="mb-0"><strong>Trusted by 1,000+ students</strong> and featured in <img src="/placeholder.svg?height=30&width=100" alt="Forbes" class="mx-2"> <img src="/placeholder.svg?height=30&width=100" alt="Entrepreneur" class="mx-2"> <img src="/placeholder.svg?height=30&width=100" alt="Business Insider" class="mx-2"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Real Results From Real People</h2>
+                    <p class="lead">These are not just promises. Here's what our students have achieved.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="count-box">
+                        <div class="count-number">$10K+</div>
+                        <p class="mb-0">Average Monthly Income</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="count-box">
+                        <div class="count-number">500+</div>
+                        <p class="mb-0">Successful Students</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="count-box">
+                        <div class="count-number">30</div>
+                        <p class="mb-0">Days to First Client</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="/placeholder.svg?height=600&width=800" alt="Frustrated web designer" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Tired of These Web Design Struggles?</h2>
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="me-3 text-secondary">
+                            <i class="fas fa-times-circle fa-2x"></i>
+                        </div>
+                        <div>
+                            <h5>Spending months trying to learn coding</h5>
+                            <p>Wasting time on complex tutorials that leave you more confused than when you started</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="me-3 text-secondary">
+                            <i class="fas fa-times-circle fa-2x"></i>
+                        </div>
+                        <div>
+                            <h5>Charging too little for your services</h5>
+                            <p>Undervaluing your work because you don't feel confident in your skills</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="me-3 text-secondary">
+                            <i class="fas fa-times-circle fa-2x"></i>
+                        </div>
+                        <div>
+                            <h5>Struggling to find clients who will pay premium rates</h5>
+                            <p>Competing with thousands of other designers on platforms like Fiverr and Upwork</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="me-3 text-secondary">
+                            <i class="fas fa-times-circle fa-2x"></i>
+                        </div>
+                        <div>
+                            <h5>Feeling overwhelmed by all the tools and technologies</h5>
+                            <p>Not knowing which platforms to use or how to put everything together</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="section-padding bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Introducing: The No-Code Web Design Blueprint</h2>
+                    <p class="lead">A complete system to build beautiful, professional websites without writing a single line of code - and get paid premium rates for your work.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box bg-white">
+                        <div class="feature-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>Design Beautiful Websites</h4>
+                        <p>Learn how to create stunning, professional websites using simple drag-and-drop tools that clients will happily pay N1,000+ for.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box bg-white">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Attract Premium Clients</h4>
+                        <p>Discover my proven outreach system to find and close high-paying clients without competing on crowded freelance platforms.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box bg-white">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Scale Your Business</h4>
+                        <p>Learn how to streamline your process, hire help, and scale to a consistent N10K+ monthly income without working more hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- My Story Section -->
+      <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="/placeholder.svg?height=600&width=600" alt="My Journey" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">My Journey From Zero to $10,000+ Per Month</h2>
+                    <p>Just 12 months ago, I was stuck in a dead-end job, making barely enough to pay the bills. I had always been interested in web design, but the thought of learning to code was overwhelming.</p>
+                    <p>After countless failed attempts at learning programming, I discovered a simple way to build professional websites without writing a single line of code.</p>
+                    <p>Within 3 months of implementing this system, I had:</p>
+                    <ul class="mb-4">
+                        <li>Built my first 5 client websites</li>
+                        <li>Generated over $10,000 in revenue</li>
+                        <li>Quit my 9-5 job</li>
+                        <li>Created a consistent pipeline of new clients</li>
+                    </ul>
+                    <p>Now I'm sharing my exact blueprint so you can achieve the same results - even faster than I did.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Video Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="section-title text-center">Watch How It Works</h2>
+                    <p class="lead">See how I built a $3,500 website in just 2 days using my no-code method</p>
+                </div>
+                <div class="col-lg-10">
+                    <div class="video-container">
+                        <!-- Replace with your YouTube video embed code -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Course Preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">How The System Works</h2>
+                    <p class="lead">Follow these 3 simple steps to start your profitable no-code web design business</p>
+                </div>
+            </div>
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <img src="/placeholder.svg?height=500&width=700" alt="Step 1: Learn the tools" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; flex-shrink: 0;">
+                            <span class="fw-bold">1</span>
+                        </div>
+                        <h3 class="mb-0">Master The No-Code Tools</h3>
+                    </div>
+                    <p class="mb-4">Learn how to use powerful no-code platforms like Webflow, Elementor, and Wix to create professional websites that look like they were custom-coded by an expert developer.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Step-by-step video tutorials for each platform</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Ready-to-use templates to jumpstart your projects</li>
+                        <li><i class="fas fa-check text-primary me-2"></i> Advanced techniques that make your sites stand out</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="/placeholder.svg?height=500&width=700" alt="Step 2: Find clients" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; flex-shrink: 0;">
+                            <span class="fw-bold">2</span>
+                        </div>
+                        <h3 class="mb-0">Attract High-Paying Clients</h3>
+                    </div>
+                    <p class="mb-4">Implement my proven client acquisition system to find businesses willing to pay $1,000-$5,000+ for your services, even if you're just starting out.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Cold email templates that get responses</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Social media strategies to position yourself as an expert</li>
+                        <li><i class="fas fa-check text-primary me-2"></i> Sales scripts to close deals without being pushy</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <img src="/placeholder.svg?height=500&width=700" alt="Step 3: Scale your business" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; flex-shrink: 0;">
+                            <span class="fw-bold">3</span>
+                        </div>
+                        <h3 class="mb-0">Scale To $10K+ Per Month</h3>
+                    </div>
+                    <p class="mb-4">Learn how to streamline your process, hire help for the parts you don't enjoy, and scale your business to consistent five-figure months.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Systems to deliver projects efficiently</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Hiring and training guides for virtual assistants</li>
+                        <li><i class="fas fa-check text-primary me-2"></i> Recurring revenue models to stabilize your income</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Testimonials Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Success Stories From Our Students</h2>
+                    <p class="lead">Don't just take our word for it. Here's what people just like you have achieved.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card bg-white">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Sarah Johnson" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-1">Sarah Johnson</h5>
+                                <p class="mb-0 text-muted">Former Teacher</p>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-3">"I was skeptical at first because I had zero tech background. Within 6 weeks of starting the program, I landed my first $2,500 client. Now I'm consistently making $12,000 per month building websites for local businesses."</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-primary fw-bold">N12K/month</span>
+                            <a href="#" class="text-decoration-none">Watch Sarah's Story <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card bg-white">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Mark Thompson" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-1">Mark Thompson</h5>
+                                <p class="mb-0 text-muted">Marketing Consultant</p>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-3">"I was already doing marketing consulting but wanted to offer website design as well. This program showed me how to create professional sites without coding and charge $3,000+ per project. My income has doubled in just 3 months."</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-primary fw-bold">$18K/month</span>
+                            <a href="#" class="text-decoration-none">Watch Mark's Story <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card bg-white">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Jessica Lee" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-1">Jessica Lee</h5>
+                                <p class="mb-0 text-muted">Graphic Designer</p>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-3">"As a graphic designer, I was already creating logos and branding, but I was afraid to offer websites because I couldn't code. This program changed everything. Now I offer complete brand packages including websites for $5,000+."</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-primary fw-bold">$15K/month</span>
+                            <a href="#" class="text-decoration-none">Watch Jessica's Story <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <a href="#pricing" class="btn btn-primary btn-lg">Join Them Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">What's Inside The Program</h2>
+                    <p class="lead">Everything you need to build a successful no-code web design business</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4"><i class="fas fa-laptop-code text-primary me-2"></i> Module 1: No-Code Mastery</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> How to choose the right no-code platform for different project types</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Step-by-step tutorials for Webflow, Elementor, and Wix</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Advanced design techniques that make your sites look custom-coded</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> How to add custom functionality without coding</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> 10 premium templates you can use as starting points (N997 value)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4"><i class="fas fa-users text-primary me-2"></i> Module 2: Client Acquisition</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> How to identify and target businesses willing to pay premium rates</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> My proven cold email templates that get 30%+ response rates</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Social media strategies to position yourself as an expert</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> How to create proposals that convert at 80%+</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Sales scripts to close deals without being pushy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4"><i class="fas fa-clipboard-list text-primary me-2"></i> Module 3: Project Management</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Client onboarding system to set clear expectations</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> How to gather content and feedback efficiently</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Project timeline templates to keep everything on track</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> How to handle revisions without scope creep</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Client handoff process that leads to referrals</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4"><i class="fas fa-chart-line text-primary me-2"></i> Module 4: Scaling Your Business</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Systems to deliver projects efficiently and consistently</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> How to hire and train virtual assistants for N5-10/hour</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Creating recurring revenue with maintenance packages</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Upselling strategies for additional services</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> How to build a team and remove yourself from day-to-day operations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <a href="#pricing" class="btn btn-primary btn-lg">Get Instant Access</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Bonus Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="bonus-section">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <h2 class="section-title">Special Bonus: $100 Worth of Premium WordPress Themes & Plugins</h2>
+                                    <p class="lead">When you enroll today, you'll get instant access to:</p>
+                                    <ul class="mb-4">
+                                        <li><strong>Premium Elementor Templates Pack</strong> ($47 value) - 20+ ready-to-use website templates</li>
+                                        <li><strong>WP Rocket Premium</strong> ($49 value) - The #1 WordPress performance plugin</li>
+                                        <li><strong>Premium Contact Form Builder</strong> ($29 value) - Create advanced forms for your clients</li>
+                                        <li><strong>SEO Optimization Pack</strong> ($39 value) - Boost your clients' search rankings</li>
+                                    </ul>
+                                    <p><strong>Total Bonus Value: $164</strong></p>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <img src="/placeholder.svg?height=300&width=300" alt="Bonus Pack" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Section -->
+        <section class="py-5 bg-light" id="pricing">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="section-title text-center">Invest In Your Future Today</h2>
+                        <p class="lead mb-5">One payment, lifetime access, unlimited potential</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="price-card">
+                            <h3 class="mb-4">The No-Code Web Design Business Blueprint</h3>
+                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                <span class="text-muted text-decoration-line-through me-3">$997</span>
+                                <span class="price">$497</span>
+                            </div>
+                            <p class="text-muted mb-4">One-time payment, lifetime access</p>
+                            <ul class="list-unstyled mb-4 text-start">
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Complete 4-module course curriculum</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Step-by-step video tutorials</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Client acquisition templates & scripts</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Website building checklists & SOPs</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Private community access</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Bi-weekly Q&A calls (6 months)</li>
+                                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> $100+ worth of premium WordPress themes & plugins</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary btn-lg w-100 mb-3">Enroll Now</a>
+                            <p class="mb-0 small">Secure payment via Stripe or PayPal</p>
+                            <div class="d-flex justify-content-center mt-3">
+                                <img src="/placeholder.svg?height=30&width=50" alt="Visa" class="mx-1">
+                                <img src="/placeholder.svg?height=30&width=50" alt="Mastercard" class="mx-1">
+                                <img src="/placeholder.svg?height=30&width=50" alt="Amex" class="mx-1">
+                                <img src="/placeholder.svg?height=30&width=50" alt="PayPal" class="mx-1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="col-lg-6 text-center">
+                        <div class="countdown mb-4">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="count-item">48</div>
+                                    <div class="count-label">Hours</div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="count-item">12</div>
+                                    <div class="count-label">Minutes</div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="count-item">33</div>
+                                    <div class="count-label">Seconds</div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="count-item">10</div>
+                                    <div class="count-label">Spots</div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Video Testimonial Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Hear From Our Students</h2>
+                    <p class="lead">Watch these video testimonials from people who have transformed their lives with our program</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <div class="video-container mb-3">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <h5>"From N0 to $8,500 in my first month"</h5>
+                            <p class="mb-0">Michael shares how he landed his first three clients within weeks of starting the program.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <div class="video-container mb-3">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <h5>"How I replaced my 9-5 income in 60 days"</h5>
+                            <p class="mb-0">Lisa explains the exact steps she took to quit her job and build a thriving web design business.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+    <!-- Guarantee Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+                    <img src="/placeholder.svg?height=300&width=300" alt="30-day money-back guarantee" class="img-fluid guarantee-badge mb-4">
+                    <h3 class="fw-bold mb-3">30-Day Money-Back Guarantee</h3>
+                    <p>If you're not completely satisfied with the program within 30 days, just let us know and we'll refund your investment in full. No questions asked.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Frequently Asked Questions</h4>
+                            <div class="faq-item">
+                                <div class="faq-question">Do I need any coding experience?</div>
+                                <div class="faq-answer">Absolutely not! This program is specifically designed for people with zero coding experience. We'll show you how to create professional websites using no-code tools.</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">How quickly can I expect results?</div>
+                                <div class="faq-answer">Many of our students land their first client within 30 days of starting the program. However, results may vary depending on your commitment and how much time you can dedicate to implementing the strategies.</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">How much time do I need to commit?</div>
+                                <div class="faq-answer">We recommend setting aside at least 5-10 hours per week to go through the training and implement what you learn. The more time you can dedicate, the faster you'll see results.</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">Will this work in my country/region?</div>
+                                <div class="faq-answer">Yes! We have students from over 30 countries who have successfully implemented our system. The beauty of web design is that you can work with clients from anywhere in the world.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section-padding bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4">Ready to Build Your No-Code Web Design Business?</h2>
+                    <p class="lead mb-4">Join over 500 successful students who are earning $5,000 - $20,000 per month building websites without writing a single line of code.</p>
+                    <a href="#pricing" class="btn btn-secondary btn-lg">Get Started Today</a>
+                    <p class="mt-3">Limited time offer: Save 50% before prices increase!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta d-none d-md-block">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h5 class="mb-0">Build a $10,000/month web design business without coding</h5>
+                </div>
+                <div class="col-md-4 text-end">
+                    <a href="#pricing" class="btn btn-primary">Get Started Today</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+
+        // Initialize with answers hidden
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
